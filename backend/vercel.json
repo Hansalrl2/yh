@@ -1,13 +1,39 @@
-
 {
   "version": 2,
   "builds": [
-    { "src": "backend/nodejs/server.ts", "use": "@vercel/node" },
-    { "src": "backend/golang/main.go", "use": "@vercel/go" },
-    { "src": "frontend/index.html", "use": "@vercel/static" }
+    {
+      "src": "backend/nodejs/server.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "backend/golang/main.go",
+      "use": "@vercel/go"
+    },
+    {
+      "src": "backend/rust/Cargo.toml",
+      "use": "@vercel/rust"
+    },
+    {
+      "src": "frontend/index.html",
+      "use": "@vercel/static"
+    }
   ],
   "routes": [
-    { "src": "/api/toanime", "dest": "/backend/nodejs/server.ts" },
-    { "src": "/(.*)", "dest": "/frontend/index.html" }
+    {
+      "src": "/api/toanime",
+      "dest": "/backend/nodejs/server.ts"
+    },
+    {
+      "src": "/api/toanime-go",
+      "dest": "/backend/golang/main.go"
+    },
+    {
+      "src": "/api/toanime-rust",
+      "dest": "/backend/rust/src/main.rs"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/index.html"
+    }
   ]
 }
